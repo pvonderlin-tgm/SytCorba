@@ -1,0 +1,12 @@
+#ifndef __CALCULATOR_IDL__
+#define __CALCULATOR_IDL__
+module calculator {
+	exception DivisionThroughZero {
+		string message;
+	 };
+
+	interface Calculation {
+		double ggt(in double numer, in double denom);
+	};
+};
+#endif  // __CALCULATOR_IDL__
