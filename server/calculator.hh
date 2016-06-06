@@ -164,6 +164,7 @@ _CORBA_MODULE_BEG
   public:
     // IDL operations
     ::CORBA::Double ggt(::CORBA::Double numer, ::CORBA::Double denom);
+    ::CORBA::Double kgv(::CORBA::Double numer, ::CORBA::Double denom);
 
     // Constructors
     inline _objref_Calculation()  { _PR_setobj(0); }  // nil
@@ -199,6 +200,7 @@ _CORBA_MODULE_BEG
     virtual ~_impl_Calculation();
 
     virtual ::CORBA::Double ggt(::CORBA::Double numer, ::CORBA::Double denom) = 0;
+    virtual ::CORBA::Double kgv(::CORBA::Double numer, ::CORBA::Double denom) = 0;
     
   public:  // Really protected, workaround for xlC
     virtual _CORBA_Boolean _dispatch(omniCallHandle&);

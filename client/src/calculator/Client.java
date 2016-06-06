@@ -11,6 +11,7 @@ public class Client {
 		//create Calculator Object
 		Calculation calculator = connectToRemote(args);
 		System.out.println("The greatest common divisor of 100 und 15 is "+calculator.ggt(100.0,15.0));	
+		System.out.println("The smallest common factor of 1550 and 15 is "+calculator.kgv(1550,15));	
 	}
 
 	public static Calculation connectToRemote(String[] args) {

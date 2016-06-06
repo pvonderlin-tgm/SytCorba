@@ -18,8 +18,42 @@ public:
     inline Calculation() {}
     virtual ~Calculation() {}
     virtual double ggt(const double numer, const double denom);
+    virtual double kgv(const double numer, const double denom);
 };
 
+double Calculation::kgv(const double numer, const double denom){
+
+	double n1 = numer;
+	double n2 = denom;	
+	double num = numer;
+	double den = denom;
+	double ggt = 0;	
+
+    if(num<0){
+        num=-num;
+    }
+
+    if(den<0){
+        den=-den;
+    }
+	
+    int i = 0;
+    while(i<1)
+    {
+        if(num==0){ // trap if a==0
+       		ggt = den;
+		i=1;
+	}
+	 den = fmod(den,num); // otherwise here would be an error
+        if(den==0){ // trap if b==0
+     		ggt = num;
+		i=1;       
+	}
+        num = fmod(num,den); // otherwise here would be an error
+    }
+
+	return CORBA::Double((n1 * n2) / ggt );	
+}
 
 double Calculation::ggt(const double numer, const double denom) {
 

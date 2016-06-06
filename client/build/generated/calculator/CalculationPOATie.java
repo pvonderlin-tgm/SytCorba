@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "Calculation".
  *
  * @author JacORB IDL compiler V 3.7
- * @version generated at Jun 6, 2016 10:38:58 AM
+ * @version generated at Jun 6, 2016 10:53:04 AM
  */
 
 public class CalculationPOATie
@@ -55,6 +55,11 @@ public class CalculationPOATie
 	public double ggt(double numer, double denom)
 	{
 		return _delegate.ggt(numer,denom);
+	}
+
+	public double kgv(double numer, double denom)
+	{
+		return _delegate.kgv(numer,denom);
 	}
 
 }

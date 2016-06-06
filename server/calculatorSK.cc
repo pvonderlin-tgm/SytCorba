@@ -275,6 +275,33 @@ _0RL_lcfn_91b5843243508882_10000000(omniCallDescriptor* cd, omniServant* svnt)
 
 }
 
+
+//
+// Code for calculator::Calculation::kgv
+
+// Local call call-back function.
+static void
+_0RL_lcfn_91b5843243508882_20000000(omniCallDescriptor* cd, omniServant* svnt)
+{
+  _0RL_cd_91b5843243508882_00000000* tcd = (_0RL_cd_91b5843243508882_00000000*)cd;
+  calculator::_impl_Calculation* impl = (calculator::_impl_Calculation*) svnt->_ptrToInterface(calculator::Calculation::_PD_repoId);
+  tcd->result = impl->kgv(tcd->arg_0, tcd->arg_1);
+
+
+}
+
+::CORBA::Double calculator::_objref_Calculation::kgv(::CORBA::Double numer, ::CORBA::Double denom)
+{
+  _0RL_cd_91b5843243508882_00000000 _call_desc(_0RL_lcfn_91b5843243508882_20000000, "kgv", 4);
+  _call_desc.arg_0 = numer;
+  _call_desc.arg_1 = denom;
+
+  _invoke(_call_desc);
+  return _call_desc.result;
+
+
+}
+
 calculator::_pof_Calculation::~_pof_Calculation() {}
 
 
@@ -307,6 +334,14 @@ calculator::_impl_Calculation::_dispatch(omniCallHandle& _handle)
   if (omni::strMatch(op, "ggt")) {
 
     _0RL_cd_91b5843243508882_00000000 _call_desc(_0RL_lcfn_91b5843243508882_10000000, "ggt", 4, 1);
+    
+    _handle.upcall(this,_call_desc);
+    return 1;
+  }
+
+  if (omni::strMatch(op, "kgv")) {
+
+    _0RL_cd_91b5843243508882_00000000 _call_desc(_0RL_lcfn_91b5843243508882_20000000, "kgv", 4, 1);
     
     _handle.upcall(this,_call_desc);
     return 1;
